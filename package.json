@@ -1,0 +1,39 @@
+{
+  "name": "dupondt",
+  "version": "0.0.1",
+  "description": "Find the people separating two people. Based on the Six Degrees of Separation theory.",
+  "main": "bin/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "simulate": "tsc && npm run bin/utils/simulation.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthur-fontaine/dupondt.git"
+  },
+  "author": "Arthur Fontaine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthur-fontaine/dupondt/issues"
+  },
+  "homepage": "https://github.com/arthur-fontaine/dupondt#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@types/cli-interact": "^0.1.0",
+    "@types/faker": "^5.5.3",
+    "@types/lodash": "^4.14.168",
+    "@types/yargs": "^16.0.1",
+    "axios": "^0.21.1",
+    "cli-interact": "^0.1.9",
+    "dotenv": "^8.2.0",
+    "faker": "^5.5.3",
+    "lodash": "^4.17.21",
+    "yargs": "^16.2.0"
+  }
+}
