@@ -14,15 +14,7 @@
 
       #text1502,
       #g1526 {
-        fill: #ffffff;
-      }
-
-      @media (prefers-color-scheme: light) {
-
-        #text1502,
-        #g1526 {
-          fill: #000000;
-        }
+        fill: #000000;
       }
     </style>
   </defs>
