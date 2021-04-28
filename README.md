@@ -21,7 +21,7 @@
     ><img
       src="https://img.shields.io/github/languages/top/arthur-fontaine/dupondt?style=flat-square"
       alt="Top language"/></a
-  ><br />
+  >
   <a href="https://twitter.com/f_arthr"
     ><img
       src="https://img.shields.io/twitter/follow/f_arthr?color=00acee&label=Arthur%20Fontaine&style=flat-square"
