@@ -1,7 +1,7 @@
 import faker from 'faker';
 import lodash from 'lodash';
 
-import { Account } from '../../types/mastodon-api/accounts/Account';
+import { Account } from '../../types/mastodon/accounts/Account';
 
 const accounts: Account[] = [];
 

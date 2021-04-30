@@ -1,7 +1,7 @@
 import axios from 'axios';
 import lodash from 'lodash';
 
-import { Account } from '../../types/mastodon-api/accounts/Account';
+import { Account } from '../../types/mastodon/accounts/Account';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();

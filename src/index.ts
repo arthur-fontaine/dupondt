@@ -1,11 +1,9 @@
 import lodash from 'lodash';
 
-import { Account } from '../types/mastodon-api/accounts/Account';
-
-export const getFriends = async (
-	user: Account,
-	getFollowing: (user: Account) => Promise<Account[]>
-): Promise<Account[]> => {
+export const getFriends = async <T extends { id: string }>(
+	user: T,
+	getFollowing: (user: T) => Promise<T[]>
+): Promise<T[]> => {
 	const following = await getFollowing(user);
 
 	return lodash.compact(
@@ -24,14 +22,14 @@ export const getFriends = async (
 	);
 };
 
-export const getTree = async (
-	source: Account,
+export const getTree = async <T extends { id: string }>(
+	source: T,
 	maxDepth: number,
-	getFollowing: (user: Account) => Promise<Account[]>,
-	sourceBranch: Account[] = [],
+	getFollowing: (user: T) => Promise<T[]>,
+	sourceBranch: T[] = [],
 	depth = 0
-): Promise<Account[][]> => {
-	const tree: Account[][] = [];
+): Promise<T[][]> => {
+	const tree: T[][] = [];
 	const branch = sourceBranch.concat(source);
 
 	if (depth < maxDepth) {
@@ -61,20 +59,22 @@ export const getTree = async (
 	}
 };
 
-export const getSeparations = async (
-	source: Account,
-	target: Account,
+export const getSeparations = async <T extends { id: string }>(
+	source: T,
+	target: T,
 	maxDepth: number,
-	getFollowing: (user: Account) => Promise<Account[]>,
-	targetPathsEntries: [string, Account[]][] = [],
+	getFollowing: (user: T) => Promise<T[]>,
+	targetPathsEntries: [string, T[]][] = [],
 	depth = 0,
-	path: Account[] = []
-): Promise<Account[] | undefined> => {
+	path: T[] = []
+): Promise<T[] | undefined> => {
+	console.log(depth);
+
 	if (depth === 0) {
 		const targetPathsMaxDepth = 4;
 		maxDepth -= targetPathsMaxDepth;
 
-		const targetPaths: { [id: string]: Account[] } = {};
+		const targetPaths: { [id: string]: T[] } = {};
 		(await getTree(target, targetPathsMaxDepth, getFollowing)).forEach(
 			(branch) => {
 				const lastNode = lodash.last(branch);
@@ -155,28 +155,28 @@ export const getSeparations = async (
 	}
 };
 
-export const checkBranch = async (
-	branch: Account[],
-	getFollowing: (user: Account) => Promise<Account[]>
-): Promise<boolean> => {
-	let treeIsCorrect = true;
+// export const checkBranch = async <T extends any>(
+// 	branch: T[],
+// 	getFollowing: (user: T) => Promise<T[]>
+// ): Promise<boolean> => {
+// 	let treeIsCorrect = true;
 
-	for (let index = 1; index < branch.length; index++) {
-		const account = branch[index];
+// 	for (let index = 1; index < branch.length; index++) {
+// 		const account = branch[index];
 
-		const accountFriends = await getFriends(account, getFollowing);
+// 		const accountFriends = await getFriends(account, getFollowing);
 
-		if (treeIsCorrect) {
-			treeIsCorrect = accountFriends.includes(branch[index - 1]);
+// 		if (treeIsCorrect) {
+// 			treeIsCorrect = accountFriends.includes(branch[index - 1]);
 
-			if (!treeIsCorrect) {
-				return treeIsCorrect;
-			}
-		}
-	}
+// 			if (!treeIsCorrect) {
+// 				return treeIsCorrect;
+// 			}
+// 		}
+// 	}
 
-	return treeIsCorrect;
-};
+// 	return treeIsCorrect;
+// };
 
 export * as simulation from './utils/buildAccounts';
 export * as mastodon from './utils/mastodon';

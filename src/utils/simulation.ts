@@ -1,5 +1,5 @@
-import { Account } from '../../types/mastodon-api/accounts/Account';
-import { getSeparations, checkBranch, simulation } from '../index';
+import { Account } from '../../types/mastodon/accounts/Account';
+import { getSeparations, simulation } from '../index';
 
 const getFollowing = async (user: Account) => {
 	return simulation.following[user.id];
@@ -13,6 +13,4 @@ const getFollowing = async (user: Account) => {
 		getFollowing
 	);
 	console.log(separation);
-
-	if (separation) console.log(await checkBranch(separation, getFollowing));
 })();
