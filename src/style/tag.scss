@@ -1,0 +1,17 @@
+@import 'colors';
+
+.tag {
+	font-weight: 300;
+	font-style: italic;
+	font-size: 0.75rem;
+	padding: 1px 6px;
+	margin-right: -1.25rem;
+	border-radius: 9999px;
+	overflow: hidden;
+	height: min-content;
+
+	&--incoming {
+		background-color: $color4;
+		color: $color1;
+	}
+}

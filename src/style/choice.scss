@@ -1,0 +1,39 @@
+@import 'colors.scss';
+
+.choice {
+	padding: 0.5rem 2.5rem;
+	background-color: rgba($color: $color2, $alpha: 0.15);
+	border-left: rgba($color: $color2, $alpha: 0.5) 1px solid;
+	border-right: rgba($color: $color2, $alpha: 0.5) 1px solid;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	&:first-of-type {
+		border-left: none;
+	}
+
+	&:last-of-type {
+		border-right: none;
+	}
+
+	p {
+		font-weight: 600;
+		color: rgba($color: $color2, $alpha: 0.5);
+		margin: 0;
+		text-transform: capitalize;
+	}
+
+	.tag--incoming {
+		margin-left: 1rem;
+	}
+
+	&--selected {
+		background-color: $color3;
+
+		p {
+			font-weight: 900;
+			color: $color2;
+		}
+	}
+}

@@ -68,8 +68,6 @@ export const getSeparations = async <T extends { id: string }>(
 	depth = 0,
 	path: T[] = []
 ): Promise<T[] | undefined> => {
-	console.log(depth);
-
 	if (depth === 0) {
 		const targetPathsMaxDepth = 4;
 		maxDepth -= targetPathsMaxDepth;

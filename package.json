@@ -1,9 +1,47 @@
 {
   "name": "dupondt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Find the people separating two people. Based on the Six Degrees of Separation theory.",
-  "main": "bin/index.js",
+  "private": true,
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/cli-interact": "^0.1.0",
+    "@types/faker": "^5.5.3",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/yargs": "^16.0.1",
+    "axios": "^0.21.1",
+    "cli-interact": "^0.1.9",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.27.0",
+    "faker": "^5.5.3",
+    "lodash": "^4.17.21",
+    "node-sass": "^4.14.1",
+    "puppeteer": "^9.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-intersection-observer": "^8.32.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1",
+    "yargs": "^16.2.0"
+  },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "tsc": "tsc",
     "simulate": "tsc && node bin/utils/simulation.js"
   },
@@ -16,25 +54,22 @@
   "bugs": {
     "url": "https://github.com/arthur-fontaine/dupondt/issues"
   },
-  "homepage": "https://github.com/arthur-fontaine/dupondt#readme",
-  "devDependencies": {
-    "@types/node": "^14.14.41",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "eslint": "^7.24.0",
-    "typescript": "^4.2.4"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "dependencies": {
-    "@types/cli-interact": "^0.1.0",
-    "@types/faker": "^5.5.3",
-    "@types/lodash": "^4.14.168",
-    "@types/yargs": "^16.0.1",
-    "axios": "^0.21.1",
-    "cli-interact": "^0.1.9",
-    "dotenv": "^8.2.0",
-    "faker": "^5.5.3",
-    "lodash": "^4.17.21",
-    "puppeteer": "^9.0.0",
-    "yargs": "^16.2.0"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

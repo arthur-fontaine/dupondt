@@ -1,0 +1,29 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+
+.home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	.choice-bar {
+		margin-bottom: 6rem;
+	}
+
+	.population-field {
+		display: flex;
+		align-items: center;
+
+		p {
+			margin-right: 1rem;
+			font-size: 1.2rem;
+			font-weight: 700;
+			text-decoration: underline;
+		}
+	}
+
+	.button {
+		margin-top: 3rem;
+	}
+}
