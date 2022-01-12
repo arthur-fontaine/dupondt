@@ -1,6 +1,6 @@
 import unittest
 
-from dupondt.find_path.dijkstra import dijkstra
+from dupondt.find_path.dijkstra.dijkstra import dijkstra
 
 
 class Node:
@@ -56,7 +56,7 @@ class TestDijkstraAlgorithm(unittest.TestCase):
         self.assertEqual(
             list(map(
                 lambda v: v.id,
-                dijkstra(test_nodes[1], test_nodes[7], lambda node_id: test_nodes[node_id].children, get_distance)
+                dijkstra(test_nodes[1], test_nodes[7], lambda node: test_nodes[node.id].children, get_distance)
             )),
             [1, 2, 4, 7]
         )

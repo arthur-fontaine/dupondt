@@ -1,11 +1,11 @@
 import math
-from typing import TypeVar, Iterable, Callable
+from typing import TypeVar, Iterable, Callable, Any
 
 T = TypeVar('T')
 
 
 def dijkstra(source_node: T, target_node: T,
-             find_children_nodes: Callable[[int], Iterable[T]], get_distance: Callable[[T, T], int],
+             find_children_nodes: Callable[[Any], Iterable[T]], get_distance: Callable[[T, T], float],
              limit: int = math.inf) -> list[T]:
     """
     Find the shortest path from a node to all other nodes in a graph.
@@ -40,7 +40,9 @@ def dijkstra(source_node: T, target_node: T,
     i = 0
 
     while i < limit:
-        children_nodes = find_children_nodes(current_node.id)
+        print(f'Iteration {i}: {" – ".join([str(node) for node in selected_nodes])}')
+
+        children_nodes = find_children_nodes(current_node)
 
         if any(children_node.id == target_node.id for children_node in children_nodes):
             return selected_nodes + [target_node]
